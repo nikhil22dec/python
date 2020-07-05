@@ -1,0 +1,15 @@
+import requests
+from bs4 import BeautifulSoup
+import csv
+
+
+base_url='https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture'
+r=requests.get(base_url)
+soup=BeautifulSoup(r.text,"html.parser")
+for node in soup.find_all('p'):
+    print(''.join(node.findAll(text=True)))
+#print(text)
+#f = csv.writer(open("pytest.csv", "w"))
+#f.writerow(text)
+#print(soup.get_text())
+
